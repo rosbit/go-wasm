@@ -11,7 +11,8 @@ The package is fully go-getable, so, just type
 to install.
 
 All the following Wasm result should be built with
-  `GOOS=js GOARCH=wasm go build`
+
+  **GOOS=js GOARCH=wasm go build**
 
 #### 1. Evaluate expressions
 
