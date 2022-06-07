@@ -1,6 +1,7 @@
 # go-wasm, makes creating WebAssembly with golang easily
 
-`go-wasm` is a package extending the golang package `syscall/js` and making creating WebAssembly with golang easily
+`go-wasm` is a package extending the golang package `syscall/js` and making creating WebAssembly with golang easily.
+If you want to learn how to create WebAssembly app with Golang, read [this tutorial](https://github.com/golang/go/wiki/WebAssembly).
 
 ### Usage
 
