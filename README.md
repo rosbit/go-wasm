@@ -87,7 +87,7 @@ func main() {
 In JS code, one can call the registered function directly. There's the example `b.js`.
 
 ```js
-r = adder(1, 100)   # the function "adder" is implemented in Go
+r = adder(1, 100)   // the function "adder" is implemented in Go
 console.log(r)
 ```
 
@@ -98,7 +98,7 @@ a JS object. There's the example `c.js`, `m` is the object var provided by Go co
 
 ```js
 m.incAge(10)
-print(m)
+console.log(m)
 
 console.log('m.name', m.name)
 console.log('m.age', m.age)
