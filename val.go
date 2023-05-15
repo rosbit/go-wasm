@@ -86,6 +86,8 @@ func fromValue(v js.Value) (interface{}) {
 		res := make(map[string]interface{})
 		json.Unmarshal([]byte(obj), &res)
 		return res
+	case js.TypeFunction:
+		return v
 	default:
 		return nil
 	}

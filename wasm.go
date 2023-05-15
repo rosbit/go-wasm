@@ -133,6 +133,14 @@ func CallFunc(funcName string, args ...interface{}) js.Value {
 	return fn.Invoke(args...)
 }
 
+func NewObject(name string, args ...interface{}) (js.Value) {
+	v := global.Get(name)
+	if v.Type() == js.TypeFunction {
+		return v.New(args...)
+	}
+	return undefined
+}
+
 func convertMap(vars map[string]interface{}) (map[string]interface{}) {
 	if len(vars) == 0 {
 		return nil
