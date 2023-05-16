@@ -141,6 +141,14 @@ func NewObject(name string, args ...interface{}) (js.Value) {
 	return undefined
 }
 
+func Get(name string) (js.Value) {
+	return global.Get(name)
+}
+
+func GetProp(v js.Value, name string) (js.Value) {
+	return v.Get(name)
+}
+
 func convertMap(vars map[string]interface{}) (map[string]interface{}) {
 	if len(vars) == 0 {
 		return nil
