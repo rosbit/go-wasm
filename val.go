@@ -19,6 +19,8 @@ func toValue(v interface{}) interface{} {
 		return v
 	case []byte:
 		return string(vv)
+	case map[string]interface{}:
+		return vv
 	case js.Value:
 		return vv
 	default:
@@ -30,6 +32,7 @@ func toValue(v interface{}) interface{} {
 				r[i] = toValue(v2.Index(i).Interface())
 			}
 			return r
+		/*
 		case reflect.Map:
 			r := make(map[interface{}]interface{})
 			iter := v2.MapRange()
@@ -38,6 +41,7 @@ func toValue(v interface{}) interface{} {
 				r[toValue(k.Interface())] = toValue(v1.Interface())
 			}
 			return r
+		*/
 		case reflect.Struct:
 			return bindGoStruct(v2)
 		case reflect.Ptr:
