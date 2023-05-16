@@ -145,8 +145,26 @@ func Get(name string) (js.Value) {
 	return global.Get(name)
 }
 
+func GetX(name string, propCascades ...string) (js.Value) {
+	v := global.Get(name)
+	return GetPropX(v, propCascades...)
+}
+
 func GetProp(v js.Value, name string) (js.Value) {
 	return v.Get(name)
+}
+
+func GetPropX(v js.Value, propCascades ...string) (js.Value) {
+	if v.Type() != js.TypeObject {
+		return v
+	}
+	for _, prop := range propCascades {
+		v = v.Get(prop)
+		if v.Type() != js.TypeObject {
+			return v
+		}
+	}
+	return v
 }
 
 func convertMap(vars map[string]interface{}) (map[string]interface{}) {
