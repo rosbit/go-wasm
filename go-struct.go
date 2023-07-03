@@ -37,9 +37,12 @@ func wrapGoStruct(structVar, structE reflect.Value, structT reflect.Type) map[st
 	r := make(map[string]interface{})
 	for i:=0; i<structT.NumField(); i++ {
 		strField := structT.Field(i)
+		fv := structE.Field(i)
+		if !fv.CanInterface() {
+			continue
+		}
 		name := strField.Name
 		name = lowerFirst(name)
-		fv := structE.Field(i)
 		r[name] = toValue(fv.Interface())
 	}
 
